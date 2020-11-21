@@ -1,0 +1,21 @@
+﻿@model HomeIndexVM
+@foreach (var item in Model.videos)
+{
+    <a data-gall="myVideos" class="venabox-video" data-vbtype="video" href="https://www.youtube.com/watch?v=@(item.VideoLink)">
+        <div class="play-btn">
+            <img src="http://i3.ytimg.com/vi/@(item.VideoLink)/maxresdefault.jpg" alt="Ayan Shafag">
+            <i class="fas fa-play"></i>
+        </div>
+    </a>
+}
+
+<script>
+    $('.venabox-video').venobox({
+        autoplay: true,
+        spinner: "cube-grid",
+        spinColor: "#edd5cf",
+        closeColor: "#edd5cf",
+        arrowsColor: "#edd5cf",
+        infinigall: true
+    });
+</script>

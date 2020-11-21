@@ -1,0 +1,47 @@
+﻿@model Videos
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["activeTab"] = "Video";
+}
+
+@section Title{
+    <h4 class="page-title text-uppercase font-medium font-20">Video</h4>
+}
+
+<style>
+    .play-btn {
+      position: relative;
+    }
+
+    .play-btn i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      color: white;
+      font-size: 35px;
+      -webkit-transition: all .5s ease;
+      transition: all .5s ease;
+    }
+</style>
+
+<dl class="text-center w-100">
+    <dt class="page-title text-capitalize font-medium font-20 mb-3">Current Video</dt>
+    <dd>
+        <a data-gall="myVideos" class="venabox-video" data-vbtype="video" href="https://www.youtube.com/watch?v=@(Model.VideoLink)">
+            <div class="play-btn">
+                <img src="http://i3.ytimg.com/vi/@(Model.VideoLink)/maxresdefault.jpg" width="500" class="img-fluid" alt="Ayan Shafag" />
+                <i class="fas fa-play"></i>
+            </div>
+        </a>
+    </dd>
+</dl>
+<form method="post" class="w-100 text-center">
+    <div class="form-group">
+        <label asp-for="VideoLink"></label>
+        <input asp-for="VideoLink" placeholder="https://www.youtube.com/watch?v=" class="w-100 form-check font-16 font-medium" />
+        <span asp-validation-for="VideoLink" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Update" class="btn btn-outline-dark btn-block btn-lg" />
+</form>

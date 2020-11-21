@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayan Shafag is Shafag Novruz's daughter and a professional make up artist with more than 5 years of experience in the beauty industry.  She is known for her achievements and outstanding works in the international community of makeup artist." />
+    <meta name="keywords" content="make up model, make up artist, ayan shafag, hair style, make up, hair style model, hair style artist" />
+    <meta name="author" content="Axmed Dev" />
+    <title>Ayan Shafag - Official Website</title>
+    <link rel="icon" href="~/image/favicon.png">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Google Fonts Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <!-- Plugins Links -->
+    <link rel="stylesheet" href="~/vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="~/vendor/css/slick.css">
+    <link rel="stylesheet" href="~/vendor/css/slick-theme.css">
+    <link rel="stylesheet" href="~/vendor/css/venobox.css" type="text/css" media="screen">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <!-- CSS Link -->
+    @RenderSection("Link", required: false)
+</head>
+<body>
+    <!-- Loader Start -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    <!-- Loader End -->
+    @RenderBody()
+    <!-- Footer Start -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="footer-icon d-flex justify-content-center">
+                        <a target="blank" href="https://www.facebook.com/AyanShafag" class="pl-0">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a target="blank" href="https://instagram.com/ayanshafag?igshid=1mjavks7zwlls">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a target="blank" href="https://www.youtube.com/channel/UCZHuITXuime73ez7VAzFqTg" class="pr-0">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="footer-text d-flex justify-content-center">
+                        <p class="m-0">© Copyright Ayan Shafag - 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Plugins Scripts -->
+    <script src="~/vendor/js/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="~/vendor/js/slick.js"></script>
+    <script src="~/vendor/js/venobox.min.js"></script>
+    <script src="~/js/index/loadMoreAjax.js"></script>
+    <script>
+        $("#send-email-btn").click(function (e) {
+            e.preventDefault();
+            var val = $("#contactForm").serialize();
+            console.log(val)
+            var name = $("#contact-name").val().trim();
+            var email = $("#contact-email").val().trim();
+            var content = $("#contact-content").val().trim();
+            if (name && email && content && validateEmail(email)) {
+                $.ajax({
+                    url: "/Home/SendEmail",
+                    method: "GET",
+                    data: val,
+                    success: function (res) {
+                        if (res.status == 200) {
+                            toastr["success"]("Dear " + name + " " + res.message);
+                            Toastr();
+                            $("#contact-name").val("");
+                            $("#contact-email").val("");
+                            $("#contact-content").val("");
+                        }
+                    }
+                })
+            }
+            else {
+                toastr["error"]("Dear User" + " your message was not sent successfully!");
+                Toastr();
+            }
+        });
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@@"]+(\.[^<>()\[\]\\.,;:\s@@"]+)*)|(".+"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        function Toastr() {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        }
+    </script>
+    <!-- JavaScript Script -->
+    @RenderSection("Script", required: false)
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Axmed\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Axmed\\.nuget\\packages"
+    ]
+  }
+}

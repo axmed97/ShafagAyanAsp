@@ -1,0 +1,19 @@
+﻿@model HomeIndexVM
+@foreach (var item in Model.images)
+{
+    <a data-gall="myImages" class="venobox" href="~/image/@(item.Image)">
+        <img src="~/image/@(item.Image)" alt="Ayan Shafag">
+    </a>
+}
+
+<script>
+    $('.venobox').venobox({
+        framewidth: '500px',
+        frameheight: 'auto',
+        spinner: "cube-grid",
+        spinColor: "#edd5cf",
+        closeColor: "#edd5cf",
+        arrowsColor: "#edd5cf",
+        infinigall: true
+    })
+</script>

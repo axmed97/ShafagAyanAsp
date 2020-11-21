@@ -1,0 +1,34 @@
+﻿@model IEnumerable<EmailInfo>
+@{
+    ViewData["Title"] = "Index";
+    ViewData["activeTab"] = "Email";
+}
+
+@section Title{
+    <h4 class="page-title text-uppercase font-medium font-20">Email</h4>
+}
+
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="text-center">
+        <tr>
+            <th></th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Admin/Email/Edit/@item.Id" class="btn btn-block btn-outline-warning">
+                        <i class="fas fa-pencil-alt fa-2x"></i>
+                    </a>
+                </td>
+                <td>
+                    @item.Email
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

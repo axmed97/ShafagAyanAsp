@@ -1,0 +1,19 @@
+﻿@model Videos
+@{
+    ViewData["Title"] = "Create";
+    ViewData["activeTab"] = "Video";
+}
+
+@section Title{
+    <h4 class="page-title text-uppercase font-medium font-20">Video</h4>
+}
+
+<form method="post" class="text-center w-100">
+    <div class="form-group">
+        <label asp-for="VideoLink"></label>
+        <input asp-for="VideoLink" placeholder="https://www.youtube.com/watch?v=" class="w-100 form-check font-16 font-medium" />
+        <span asp-validation-for="VideoLink" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Create" class="btn btn-block btn-outline-dark btn-lg" />
+</form>
+

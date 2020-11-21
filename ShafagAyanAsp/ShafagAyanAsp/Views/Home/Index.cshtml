@@ -1,0 +1,311 @@
+﻿@model HomeIndexVM
+@{
+    int allImageCount = (int)ViewData["allImageCount"];
+    int allVideoCount = (int)ViewData["allVideoCount"];
+}
+@section Link{
+    <link href="~/css/index/style.css" rel="stylesheet" />
+}
+<style>
+    #load-more-image {
+        opacity: 1;
+        transition: .5s ease;
+    }
+
+    #load-more-video {
+        opacity: 1;
+        transition: .5s ease;
+    }
+</style>
+<!-- Header Start -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="navigation-menu d-flex justify-content-between align-items-center">
+                    <div class="nav-logo">
+                        <a href="/Home/Index">
+                            <img src="~/image/ayan-logo.png" alt="Ayan Shafag Logo">
+                        </a>
+                    </div>
+                    <div class="nav-menu d-flex align-items-center">
+                        <ul class="d-flex nav-ul">
+                            <li class="nav-li active-link"><a class="nav-a scroll" href="#home">home</a></li>
+                            <li class="nav-li"><a class="nav-a scroll" href="#about">about</a></li>
+                            <li class="nav-li"><a class="nav-a scroll" href="#services">services</a></li>
+                            <li class="nav-li"><a class="nav-a scroll" href="#work">works</a></li>
+                            <li class="nav-li"><a class="nav-a scroll" href="#contact">contact</a></li>
+                        </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="after-login">
+                                <ul class="login-ul d-flex">
+                                    <li class="login-li">
+                                        <a class="login-a d-flex align-items-center">Welcome, @User.Identity.Name <i class="fas fa-angle-down"></i></a>
+                                        <div class="hover-menu">
+                                            <ul>
+                                                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                                {
+                                                    <li><a href="/Admin/Dashboard/Index">Admin Panel</a></li>
+                                                }
+                                                <li><a href="/Auth/ChangePassword">Change Password</a></li>
+                                                <li><a href="/Auth/Logout">Sign Out</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="login-info d-flex align-items-center">
+                                <a href="/Auth/Login" class="login-info-btn">
+                                    <i class="far fa-user"></i>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <div class="menu-btn">
+                        <div class="menu-btn-burger"></div>
+                    </div>
+                    <div class="side-menu">
+                        <ul>
+                            <li class="active-side-link"><a class="resp-scroll" href="#home">home</a></li>
+                            <li><a class="resp-scroll" href="#about">about</a></li>
+                            <li><a class="resp-scroll" href="#services">services</a></li>
+                            <li><a class="resp-scroll" href="#work">works</a></li>
+                            <li><a class="resp-scroll" href="#contact">contact</a></li>
+                        </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="responsive-after-login">
+                                <ul class="p-0">
+                                    <li>
+                                        <a class="acc-btn">Welcome, @User.Identity.Name <i class="fas fa-angle-down"></i></a>
+                                        <div class="acc-menu">
+                                            <ul class="p-0">
+                                                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                                {
+                                                    <li><a class="acc-a" href="/Admin/Dashboard/Index">Admin Panel</a></li>
+                                                }
+                                                <li><a class="acc-a" href="/Auth/ChangePassword">Change Password</a></li>
+                                                <li><a class="acc-a" href="/Auth/Logout">Sign Out</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="responsive-login-info">
+                                <a href="/Auth/Login" class="responsive-login-info-btn"><p>Log In</p></a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+<!-- Home Start -->
+<section id="home" class="home-section">
+    <div class="container">
+        <div class="row">
+            <div class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="home-slider">
+                    @foreach (var item in Model.sliders)
+                    {
+                        <img src="~/image/@(item.Image)" alt="Ayan Shafag">
+                    }
+                </div>
+            </div>
+            <div class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="home-text">
+                    <h1>Ayan Shafag</h1>
+                    <h5>makeup artist</h5>
+                    <p>Welcome to my beauty world, dear friends! My goal as a make up artist is to make every single one of you feel beautiful and confident. I hope you join me and on my beauty adventures through life and enjoy every moment together with me and my team.</p>
+                    <div class="about-btn">
+                        <a class="about-scroll" href="#about">about me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Home End -->
+<!-- About Start -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="row about-reverse">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="about-text">
+                    <h1>About Me</h1>
+                    <p>
+                        Hi, I'm Ayan Shafag. Welcome to my beauty world dear friends! My goal as a makeup artist is to make every single one of you feel beautiful and confident. I was lucky enough to be born into this industry and to start my professional career at the age of 16 thanks to my mother, Shafag Novruz and I am very happy to be able to share what excites and motivates me the most with all of you. Join me on my beauty adventures through life. We will have a lot of fun together.
+                    </p>
+                    <div class="about-icon">
+                        <a target="blank" href="https://www.facebook.com/AyanShafag" class="pl-0">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a target="blank" href="https://instagram.com/ayanshafag?igshid=1mjavks7zwlls">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a target="blank" href="https://www.youtube.com/channel/UCZHuITXuime73ez7VAzFqTg" class="pr-0">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="about-img">
+                    <img class="main-img" src="~/image/AyanShafag-10.jpg" alt="Ayan Shafag">
+                    <img class="hover-img" src="~/image/AyanShafag-9.jpg" alt="Ayan Shafag">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- About End -->
+<!-- Service Start -->
+<section id="services" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="service-title mb-4">
+                    <h1>Our Services</h1>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="service-item service-item-1">
+                    <div class="service-img">
+                        <img src="~/image/45d8d9ed-0a7f-4baa-b564-fd83a2240b7dAyanShafag-13.jpg" alt="Ayan Shafag">
+                    </div>
+                    <div class="service-text">
+                        <span>Make Up</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="~/image/AyanShafag-2.jpg" alt="Ayan Shafag">
+                    </div>
+                    <div class="service-text">
+                        <span>Hair Style</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Service End -->
+<!-- Work Start -->
+<section id="work" class="work-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="work-title mb-4">
+                    <h1>Our Works</h1>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div id="videos" class="load-video">
+                    <partial name="_VideoPartial" />
+                </div>
+                <div class="load-more" id="load-more-video" data-video="@(allVideoCount)">
+                    <button>load more</button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div id="photos" class="load-image">
+                    <partial name="_ImagePartial" />
+                </div>
+                <div class="load-more" id="load-more-image" data-image="@(allImageCount)">
+                    <button>load more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Work End -->
+<!-- Contact Start -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="contact-title mb-4">
+                    <h1>Contact Us</h1>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="contact-info">
+                    <h2 class="mb-4">Contact Info</h2>
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon mr-3">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Phone</h5>
+                            <a href="tel:+994553414747">(+994)-55-341-47-47</a>
+                        </div>
+                    </div>
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon mr-3">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Email</h5>
+                            <a href="mailto:ayanshafag@gmail.com">ayanshafag@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item d-flex align-items-center">
+                        <div class="contact-icon mr-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Address</h5>
+                            <p><a target="_blank" href=@("https://www.google.com/maps/place/Avenue+Veraj+%2F+Jal%C9%99+Plaza/@40.3803482,49.8403214,17z/data=!3m1!4b1!4m5!3m4!1s0x40307da132aa5791:0xcb9537f25a47d0c5!8m2!3d40.3803482!4d49.8425101")>Avenue Veraj 2-ci Mərtəbəsi</a></p>
+                            <p><a target="_blank" href=@("https://www.google.com/maps/place/87+Zahid+X%C9%99lilov,+Bak%C4%B1,+%D0%90%D0%B7%D0%B5%D1%80%D0%B1%D0%B0%D0%B9%D0%B4%D0%B6%D0%B0%D0%BD/@40.3772828,49.8094608,17z/data=!3m1!4b1!4m5!3m4!1s0x40307deb81d9a7c3:0x6046d418f64ed2fc!8m2!3d40.3772828!4d49.8116495")>Zahid Xəlilov 87X</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item d-flex align-items-center">
+                        <div class="contact-icon mr-2">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Created By</h5>
+                            <a target="_blank" href="https://www.instagram.com/kharibabdullayev/">Ali Yusub Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="message-me">
+                    <h2 class="mb-4">Message Me</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input class="input-text" id="contact-name" name="username" type="text" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input class="input-text" id="contact-email" name="email" type="text" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Text" id="contact-content" name="content" rows="8"></textarea>
+                        </div>
+                        <input class="input-btn" id="send-email-btn" type="button" value="Send Message">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact End -->
+@section Script{
+    <script src="~/js/index/main.js"></script>
+}

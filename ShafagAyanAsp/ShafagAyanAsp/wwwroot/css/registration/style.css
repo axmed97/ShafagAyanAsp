@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+}
+
+::-moz-selection {
+  background-color: #455770;
+  color: #edd5cf;
+}
+
+::selection {
+  background-color: #455770;
+  color: #edd5cf;
+}
+
+::-webkit-scrollbar {
+  background-color: #455770;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #edd5cf;
+}
+
+body {
+  overflow: hidden;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+/* Loader Start */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #edd5cf;
+  z-index: 100000;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370DB;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #BA55D3;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #FF00FF;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Loader End */
+/* Register Start */
+.register-section {
+  background-color: #edd5cf;
+  padding: 30px 0;
+}
+
+.register-section .register-logo {
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.register-section .register-logo a img {
+  max-width: 100%;
+  height: 13em;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.register-section .register-title {
+  margin-bottom: 25px;
+}
+
+.register-section .register-title h1 {
+  font-size: 50px;
+  color: #455770;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.register-section .register-form .input-field {
+  width: 60%;
+  margin: auto;
+  border: none;
+  color: #455770;
+  font-family: "Cormorant Garamond", serif;
+  -webkit-transition: all;
+  transition: all;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 18px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  font-weight: 600;
+}
+
+.register-section .register-form .input-field::-webkit-input-placeholder {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+.register-section .register-form .input-field:-ms-input-placeholder {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+.register-section .register-form .input-field::-ms-input-placeholder {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+.register-section .register-form .input-field::placeholder {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+.register-section .register-form button {
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-family: "Marcellus", serif;
+  color: #455770;
+  border: 1px solid #455770;
+  background-color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.register-section .register-form button:hover {
+  color: #edd5cf;
+}
+
+.register-section .register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-section .register-link a {
+  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  color: #455770;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  font-weight: 600;
+}
+
+.register-section .register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Register End */
+/* Footer Start */
+footer {
+  padding: 30px 0;
+  background-color: #455770;
+}
+
+footer .footer-icon a {
+  padding: 0 15px;
+  font-size: 23px;
+  color: #edd5cf;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+footer .footer-icon a span {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+footer .footer-icon a:nth-child(1):hover {
+  color: #4267B2;
+}
+
+footer .footer-icon a:nth-child(2):hover {
+  color: #C13584;
+}
+
+footer .footer-icon a:nth-child(3):hover {
+  color: #FF0000;
+}
+
+footer .footer-text p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  font-style: italic;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  color: #edd5cf;
+}
+
+/* Footer End */
+/* Media Query Start */
+@media (max-width: 992px) {
+  .register-logo a img {
+    height: 10em !important;
+  }
+  .register-form .input-field {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-form .input-field {
+    width: 100% !important;
+  }
+  /* Footer Media Query Start */
+  footer .footer-icon {
+    margin-bottom: 15px;
+  }
+  footer .footer-icon a span {
+    display: none !important;
+  }
+  /* Footer Media Query End */
+}
+
+/* Media Query End */
+/*# sourceMappingURL=style.css.map */

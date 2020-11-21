@@ -1,0 +1,18 @@
+﻿@model Images
+@{
+    ViewData["Title"] = "Create";
+    ViewData["activeTab"] = "Image";
+}
+
+@section Title{
+    <h4 class="page-title text-uppercase font-medium font-20">Image</h4>
+}
+
+<form method="post" enctype="multipart/form-data" class="w-100">
+    <div class="form-group">
+        <label asp-for="Photo"></label>
+        <input asp-for="Photo" accept="image/" class="form-check" />
+        <span asp-validation-for="Photo" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Create" class="btn btn-block btn-outline-dark btn-lg" />
+</form>

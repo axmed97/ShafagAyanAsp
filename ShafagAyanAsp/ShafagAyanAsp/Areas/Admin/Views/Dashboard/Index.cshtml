@@ -1,0 +1,47 @@
+﻿@model HomeIndexVM
+@{
+    ViewData["Title"] = "Index";
+    ViewData["activeTab"] = "Dashboard";
+}
+
+@section Title{
+    <h4 class="page-title text-uppercase font-medium font-20">Dashboard</h4>
+}
+
+<div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="white-box analytics-info">
+        <h3 class="box-title">Slider</h3>
+        <ul class="list-inline two-part d-flex align-items-center mb-0">
+            <li>
+                <i style="color: #7ace4c;" class="far fa-file-image fa-2x"></i> 
+            </li>
+            <li class="ml-auto"><span class="counter text-success">@Model.sliders.ToList().Count</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="white-box analytics-info">
+        <h3 class="box-title">Image</h3>
+        <ul class="list-inline two-part d-flex align-items-center mb-0">
+            <li>
+                <i style="color: #707cd2;" class="far fa-images fa-2x"></i>
+            </li>
+            <li class="ml-auto"><span class="counter text-purple">@Model.images.ToList().Count</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="white-box analytics-info">
+        <h3 class="box-title">Video</h3>
+        <ul class="list-inline two-part d-flex align-items-center mb-0">
+            <li>
+                <i style="color: #2cabe3;" class="fab fa-youtube fa-2x"></i>
+            </li>
+            <li class="ml-auto">
+                <span class="counter text-info">@Model.videos.ToList().Count</span>
+            </li>
+        </ul>
+    </div>
+</div>
